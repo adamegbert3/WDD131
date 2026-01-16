@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script defer>
+            let selectElem = document.getElementById('webdevlist');
+        selectElem.addEventListener('change', function(){
+            let codeValue = selectElem.value;
+            console.log(codeValue);
+
+        //     if(codeValue === 'html')
+        //         document.body.style.backgroundColor = '#f06543';
+        //     else if(codeValue === 'css')
+        //         document.getElementById("content").style.border = "5px solid blue";
+        //         document.getElementById("topics").style.color = "red";
+        //     else if(codeValue === 'js')
+        //         document.body.style.backgroundColor = '#f0db4f';
+        });
+        </script>
     <style>
     body {
         background-color: #ddd;
@@ -75,12 +90,5 @@
     <option value="css">CSS</option>
     <option value="js">JavaScript</option>
 </select>
-<script>
-    let selectElem = document.getElementById('webdevlist');
-selectElem.addEventListener('change', function(){
-    let codeValue = selectElem.value;
-    console.log(codeValue);
-})
-</script>
 </body>
 </html>
