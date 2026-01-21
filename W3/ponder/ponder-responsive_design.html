@@ -25,6 +25,11 @@ footer {
 h1 {
     text-align: center;
 }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 section {
   padding: 20px;
   background-color: white;
@@ -39,6 +44,15 @@ nav a {
 nav a:hover {
     text-decoration: none;
     color: #616061;
+}
+nav.show {
+    display: flex;
+    flex-direction: column;
+    top: 60px;
+    width: 100%;
+}
+nav.show a {
+    display: flex;
 }
 .menu-btn {
     cursor: pointer;
@@ -58,35 +72,42 @@ footer {
 @media screen and (min-width: 700px) {
     main {
     grid-template-columns: 1fr 1fr;
-    
+    }
+    nav a {
+        display: flex;
+
+    }
+    nav {
+        display: flex;
+    }
+    .menu-btn {
+    display: none;
     }
 }
 @media screen and (min-width: 1024px) {
     main {
     grid-template-columns: 1fr 1fr 1fr;
     }
+    nav a {
+        display: flex;
+
+    }
+    nav {
+        display: flex;
+    }
+    .menu-btn {
+    display: none;
+    }
 }
     </style>
     <script>
-        document.addEventListener("@media screen and (max-width: 700px)", function(e) {
+        document.addEventListener("DOMContentLoaded", () => {
             const menuBtn = document.querySelector(".menu-btn");
-            const navLinks = document.querySelectorAll("nav a");
+            const nav = document.querySelector("nav");
 
-            if (e.matches) {
-                menuBtn.addEventListener("click", () => {
-                    navLinks.forEach(link => {
-                        if (link.style.display === "block") {
-                            link.style.display = "none";
-                        } else {
-                            link.style.display = "block";
-                        }
-                    });
-                });
-            } else {
-                navLinks.forEach(link => {
-                    link.style.display = "inline";
-                });
-            }
+            menuBtn.addEventListener("click", () => {
+                nav.classList.toggle("show");
+            });
         });
     </script>
 </head>
