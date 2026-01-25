@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        background-color: lightgray;
+    }
+    header {
+        text-align: center;
+        background-color: blue;
+        color: white;
+        padding-top: 20px;
+    }
+    a {
+        color: white;
+    }
+    footer {
+        text-align: center;
+        background-color: blue;
+        color: white;
+    }
+    img {
+        width: 250px;
+        height: auto;
+        padding: 0px;
+        border: 7px solid white;
+    }
+    nav.open {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .pics {
+        display: grid;
+    }
+    @media screen and (max-width: 699px) {
+        .pics {
+        grid-template-columns: 1fr;
+        }
+        nav {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 700px) {
+        .pics {
+        grid-template-columns: 1fr 1fr;
+        }
+        footer {
+            text-align: left;
+        }
+        nav {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 1024px) {
+        .pics {
+        grid-template-columns: 1fr 1fr 1fr;
+        }
+        nav a {
+            display: flex;
+            color: white;
+
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: white;
+        }
+        .menu-btn {
+        display: none;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cool Pics 📸</h1>
+        <div class="menu-btn">
+              <button class="menu-btn">
+                <h3>Menu</h3>
+                </button>
+                    </div>
+                <nav id="main-nav">
+                    <a href="#">Home</a>
+                    <a href="#">People</a>
+                    <a href="#">Places</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                </nav>
+    </header>
+    <div>
+        <h4>
+            Current Work
+        </h4>
+    <div class="pics">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+    </div>
+    <footer>
+        <p>
+            &copy; 2025 Not a real site 😂
+        </p>
+    </footer>
+    <script>
+        const btn = document.querySelector('.menu-btn');
+        const nav = document.getElementById('main-nav');
+        btn.addEventListener('click', () => nav.classList.toggle('open'));
+    </script>
+</body>
+</html>

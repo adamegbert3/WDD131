@@ -83,6 +83,9 @@ footer {
     .menu-btn {
     display: none;
     }
+    footer {
+        text-align: left;
+    }
 }
 @media screen and (min-width: 1024px) {
     main {
@@ -101,14 +104,12 @@ footer {
 }
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
             const menuBtn = document.querySelector(".menu-btn");
             const nav = document.querySelector("nav");
 
             menuBtn.addEventListener("click", () => {
                 nav.classList.toggle("show");
-            });
-        });
+            });;
     </script>
 </head>
 <body>
