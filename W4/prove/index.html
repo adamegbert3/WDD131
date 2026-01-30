@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        background-color: lightgray;
+    }
+    h4 {
+        text-align: center;
+    }
+    header {
+        text-align: center;
+        background-color: blue;
+        color: white;
+        padding-top: 20px;
+    }
+    a {
+        color: white;
+    }
+    footer {
+        text-align: center;
+        background-color: blue;
+        color: white;
+    }
+    img {
+        width: 250px;
+        height: auto;
+        padding: 0px;
+        border: 7px solid white;
+    }
+    nav.open {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .pics {
+        display: grid;
+        justify-items: center;
+        gap: 20px;
+    }
+    dialog img {
+        width: 90%;
+        display: block;
+        margin: 20vh auto;
+    }
+    dialog {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.75);
+        border: none;
+    }
+    .close-viewer {
+        position: absolute;
+        top: 10vh;
+        right: 2vh;
+        padding: 3px 6px;
+        font-size: 1.5em;
+    }
+    @media screen and (max-width: 699px) {
+        .pics {
+        grid-template-columns: 1fr;
+        }
+        nav {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 700px) {
+        .pics {
+        grid-template-columns: 1fr 1fr;
+        }
+        footer {
+            text-align: left;
+        }
+        nav {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 1024px) {
+        .pics {
+        grid-template-columns: 1fr 1fr 1fr;
+        }
+        nav a {
+            display: flex;
+            color: white;
+
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: white;
+        }
+        .menu-btn {
+        display: none;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cool Pics 📸</h1>
+        <div class="menu-btn">
+              <button class="menu-btn">
+                <h3>Menu</h3>
+                </button>
+                    </div>
+                <nav id="main-nav">
+                    <a href="#">Home</a>
+                    <a href="#">People</a>
+                    <a href="#">Places</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                </nav>
+    </header>
+    <div>
+        <h4> <strong>
+            Current Work
+        </strong></h4>
+    <div class="pics">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+        <img src="image.png" alt="yellowstone">
+    </div>
+        <dialog>
+        <img>
+        <button class="close-viewer">X</button>
+    </dialog>
+    <footer>
+        <p>
+            &copy; 2025 Not a real site 😂
+        </p>
+    </footer>
+    <script>
+        const btn = document.querySelector('.menu-btn');
+        const nav = document.getElementById('main-nav');
+        const gallery = document.querySelector('.pics');
+        const modal = document.querySelector('dialog');
+        const modalImage = modal.querySelector('img');
+        const closeButton = modal.querySelector('.close-viewer');
+        btn.addEventListener('click', () => nav.classList.toggle('open'));
+        
+        // Event listener for opening the modal
+        gallery.addEventListener('click', openModal);
+
+        // Code to show modal  - Use event parameter 'e'   
+        function openModal(e) {
+            if (e.target.tagName === 'IMG') {
+                modalImage.src = e.target.src;
+                modalImage.alt = e.target.alt;
+                modal.showModal();
+            }
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!nav.contains(event.target) && !btn.contains(event.target)) {
+                nav.classList.remove('open');
+            }
+        });
+        // Close using escape
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                nav.classList.remove('open');
+            }
+        });
+        // Close on x
+        closeButton.addEventListener('click', () => {
+            modal.close();
+        });
+        // Close on outside the image
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.close();
+            }
+        });
+    </script>
+</body>
+</html>
