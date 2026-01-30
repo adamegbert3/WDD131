@@ -110,9 +110,9 @@ gallery.addEventListener('click', openModal);
 // function openModal(e) {
     
 // Code to show modal  - Use event parameter 'e'   
-function openModal(evt) {
-    if (evt.target.tagName === 'IMG') { // only use images
-        const imageSrc = evt.target.src.replace('-sm.jpg', '-full.jpg');
+function openModal(e) {
+    if (e.target.tagName === 'IMG') { // only use images
+        const imageSrc = e.target.src.replace('-sm.jpg', '-full.jpg');
         modalImage.src = imageSrc;
         modal.showModal();
     }
