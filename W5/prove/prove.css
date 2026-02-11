@@ -83,4 +83,7 @@ header, footer {
         grid-area: search;
     
     }
+    #desc {
+    grid-column: 1 / -1;
+}
 }

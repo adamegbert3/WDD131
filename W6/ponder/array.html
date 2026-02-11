@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>What grade did you recieve?</p>
+<div id="grades">
+    <button>
+        A
+    </button>
+    <button>
+        B
+    </button>    
+    <button>
+        C
+    </button>    
+    <button>
+        D
+    </button>    
+    <button>
+        F
+    </button>
+    </div>
+
+    <h6>Check the console to see your points!</h6>
+
+
+
+   <p> ____________________________________________________ </p>
+
+   <p>Who do you want to choose? Choose a person!</p>
+
+    <button id="TT"> 
+        TT
+    </button>
+    <button id="MM"> 
+        MM
+    </button>
+    <button id="AA"> 
+        AA
+    </button>
+
+    <h6>Check the console to see who you clicked on!</h6>
+
+    <p> ____________________________________________________ </p>
+
+<p>What fruit do you want to know the color.</p>
+    <div id="fruits">
+    <button>watermelon</button>
+    <button>peach</button>
+    <button>apple</button>
+    <button>tomato</button>
+    <button>grape</button>
+    </div>
+
+<h6>Check the console to see the fruits color!</h6>
+
+
+
+
+
+    <script>
+const fruitColors = {
+    watermelon: 'green',
+    peach: 'orange',
+    apple: 'red or green',
+    tomato: 'red',
+    grape: 'purple'
+};
+
+const fruits = document.getElementById('fruits');
+    fruits.addEventListener('click', (event) => {
+        if (event.target.tagName === 'BUTTON') {
+            const fruitName = event.target.innerText;
+            const color = fruitColors[fruitName];
+            console.log(` ${fruitName} is ${color}`);
+        }
+    })
+
+        const words = ['watermelon', 'peach', 'apple', 'tomato', 'grape'];
+
+    //     const watermelon = document.getElementById('watermelon');
+
+    //     const peach = document.getElementById('peach');
+
+    //     const apple = document.getElementById('apple');
+
+    //     const tomato = document.getElementById('tomato');
+
+    //     const grape = document.getElementById('grape');
+
+        
+    //     fruits.addEventListener('click', function(event){
+    //         if (event.target.tagName === 'BUTTON'){
+    //             const fruit
+    //         }
+    //     }
+    // )
+
+
+        function convert(grade) {
+    switch (grade){
+        case 'A':
+            points = 4;
+            break;
+        case 'B':
+            points = 3;
+            break;
+        case 'C':
+            points = 2;
+            break;
+        case 'D':
+            points = 1;
+            break;
+        case 'F':
+            points = 0;
+            break;
+        default:
+            alert('not a valid grade');
+            return;
+    }
+    return points;
+    }
+
+const grades = document.getElementById('grades');
+
+grades.addEventListener('click', function(event){
+    if (event.target.tagName === 'BUTTON'){
+        const grade = event.target.innerText;
+        const points = convert(grade);
+                console.log(points);
+                console.log(`Your grade is ${grade}`);
+                console.log(`You received ${points} points`);
+            }
+        });
+
+
+
+
+    const students = [
+    {last: 'Andrus', first: 'Aaron'},
+    {last: 'Masa', first: 'Manny'},
+    {last: 'Tanda', first: 'Tamanda'}
+];
+
+const AA = document.getElementById('AA');
+
+const MM = document.getElementById('MM');
+
+const TT = document.getElementById('TT');
+
+
+    AA.addEventListener('click', () => {
+        const student = students[0];
+        console.log(`Their name is ${student.first} ${student.last}.`);
+    });
+    
+    MM.addEventListener('click', () => {
+        const student = students[1];
+        console.log(`Their name is ${student.first} ${student.last}.`);
+    });
+
+    TT.addEventListener('click', () => {
+        const student = students[2];
+        console.log(`Their name is ${student.first} ${student.last}.`);
+    });
+        
+
+
+
+    </script>
+</body>
+</html>
